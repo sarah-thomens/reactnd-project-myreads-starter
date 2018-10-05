@@ -1,59 +1,81 @@
-html, body, .root {
+/* -----------------------------------------------------------------------------------------------------------
+ * General Page CSS
+------------------------------------------------------------------------------------------------------------*/
+html, body, .root
+{
   height: 100%;
 }
-body {
+
+body
+{
   line-height: 1.5;
 }
-body, .app {
-  background: white;
+
+body, .app
+{
+  background: mintcream;
 }
 
-/* main page */
-
-.list-books-title {
+/* -----------------------------------------------------------------------------------------------------------
+ * Main Page CSS
+------------------------------------------------------------------------------------------------------------*/
+.list-books-title
+{
   padding: 10px 0;
-  background: #2e7c31;
+  background: purple;
   text-align: center;
 }
-.list-books-title h1 {
+
+.list-books-title h1
+{
   font-weight: 400;
   margin: 0;
   color: white;
 }
 
-.list-books-content {
+.list-books-content
+{
   padding: 0 0 80px;
   flex: 1;
 }
 
-.bookshelf {
+.bookshelf
+{
   padding: 0 10px 20px;
 }
 
-@media (min-width: 600px) {
-  .bookshelf {
+@media( min-width: 600px )
+{
+  .bookshelf
+	{
     padding: 0 20px 40px;
   }
 }
 
-.bookshelf-title {
+.bookshelf-title
+{
   border-bottom: 1px solid #dedede;
 }
-.bookshelf-books {
+
+.bookshelf-books
+{
   text-align: center;
 }
 
-.open-search {
+.open-search
+{
   position: fixed;
   right: 25px;
   bottom: 25px;
 }
-.open-search a {
+
+.open-search a
+{
   display: block;
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: #2e7d32;
+  background: purple;
   background-image: url('./icons/add.svg');
   background-repeat: no-repeat;
   background-position: center;
@@ -62,9 +84,11 @@ body, .app {
   font-size: 0;
 }
 
-/* search page */
-
-.search-books-bar {
+/* -----------------------------------------------------------------------------------------------------------
+ * Search Page CSS
+------------------------------------------------------------------------------------------------------------*/
+.search-books-bar
+{
   position: fixed;
   width: 100%;
   top: 0;
@@ -73,11 +97,15 @@ body, .app {
   display: flex;
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 0 6px rgba(0,0,0,0.23);
 }
-.search-books-input-wrapper {
+
+.search-books-input-wrapper
+{
   flex: 1;
   background: #e9e;
 }
-.search-books-bar input {
+
+.search-books-bar input
+{
   width: 100%;
   padding: 15px 10px;
   font-size: 1.25em;
@@ -85,7 +113,8 @@ body, .app {
   outline: none;
 }
 
-.close-search {
+.close-search
+{
   display: block;
   top: 20px;
   left: 15px;
@@ -99,13 +128,16 @@ body, .app {
   font-size: 0;
 }
 
-.search-books-results {
+.search-books-results
+{
   padding: 80px 10px 20px;
 }
 
-/* books grid */
-
-.books-grid {
+/* -----------------------------------------------------------------------------------------------------------
+ * Books Grid CSS
+------------------------------------------------------------------------------------------------------------*/
+.books-grid
+{
   list-style-type: none;
   padding: 0;
   margin: 0;
@@ -114,60 +146,77 @@ body, .app {
   justify-content: center;
   flex-wrap: wrap;
 }
-.books-grid li {
+
+.books-grid li
+{
   padding: 10px 15px;
   text-align: left;
 }
 
-.book {
+.book
+{
   width: 140px;
 }
+
 .book-title,
-.book-authors {
+.book-authors
+{
   font-size: 0.8em;
 }
-.book-title {
+
+.book-title
+{
   margin-top: 10px;
 }
-.book-authors {
+
+.book-authors
+{
   color: #999;
 }
 
-.book-top {
+.book-top
+{
   position: relative;
   height: 200px;
   display: flex;
   align-items: flex-end;
 }
 
-.book-shelf-changer {
+.book-shelf-changer
+{
   position: absolute;
   right: 0;
   bottom: -10px;
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: #60ac5d;
+  background: mediumseagreen;
   background-image: url('./icons/arrow-drop-down.svg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: 20px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
-.book-shelf-changer select {
+
+.book-shelf-changer select
+{
   width: 100%;
   height: 100%;
   opacity: 0;
   cursor: pointer;
 }
 
-/* book cover */
-
-.book-cover {
+/* -----------------------------------------------------------------------------------------------------------
+ * Book Cover CSS
+------------------------------------------------------------------------------------------------------------*/
+.book-cover
+{
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   background: #eee;
 }
-.book-cover-title {
+
+.book-cover-title
+{
   padding: 20px 10px 0;
   text-align: center;
   font-size: 0.8em;
