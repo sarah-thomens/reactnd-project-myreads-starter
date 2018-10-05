@@ -1,10 +1,16 @@
-html {
+/*-- Global Styling for the Application --------------------------------------------------------------------*/
+html
+{
   box-sizing: border-box;
 }
-*, *:before, *:after {
+
+*, *:before, *:after
+{
   box-sizing: inherit;
 }
-body {
+
+body
+{
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
