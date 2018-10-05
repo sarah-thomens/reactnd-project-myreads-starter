@@ -1,15 +1,38 @@
 # MyReads Project
 
-This is the starter template for the final assessment project for Udacity's React Fundamentals course. The goal of this template is to save you time by providing a static example of the CSS and HTML markup that may be used, but without any of the React code that is needed to complete the project. If you choose to start with this template, your job will be to add interactivity to the app by refactoring the static code in this template.
+### By: Sarah Thomens
 
-Of course, you are free to start this project from scratch if you wish! Just be sure to use [Create React App](https://github.com/facebookincubator/create-react-app) to bootstrap the project.
+This project uses the starter template for the final assessment project for Udacity's React Fundamentals course. The CSS and HTML markup was provided as a starting point, but without any of the React code. All React code was written by Sarah Thomens.
 
-## TL;DR
+## How to Install and Run Project
 
-To get started developing right away:
+To install and run this project:
 
 * install all project dependencies with `npm install`
 * start the development server with `npm start`
+
+## Requirements Checklist
+* Main Page
+	- [ ] Shows three different shelves - currently reading, want to read, and read
+	- [ ] Links to Search Page
+* Search Page
+	- [ ] Has text input that brings up books that match the query
+	- [ ] Books that come up should have control to change bookshelves
+	- [ ] Has a link to the root URL (`/`)
+	- [ ] New book selections on search page should show up on main page
+	- [ ] Invalid queries are handled
+	- [ ] Prior search results are not shown
+	- [ ] Search works correctly when a book does not have a thumbnail or author
+	- [ ] User is able to search for multiple word queries
+* Books
+	- [ ] Each book has a control to change what shelf it is on
+	- [ ] Default value should be the current shelf the book is on or 'none' if not on a shelf
+	- [ ] Book moves to new shelf immediately when changed
+	- [ ] Book should have same state on main page and on search page
+* Misc
+	- [ ] Include a README file with instructions for installing and launching
+	- [ ] Project code handles state management appropriately
+
 
 ## What You're Getting
 ```bash
@@ -79,7 +102,7 @@ search(query)
 * These books do not know which shelf they are on. They are raw results only. You'll need to make sure that books have the correct state while on the search page.
 
 ## Important
-The backend API uses a fixed set of cached search results and is limited to a particular set of search terms, which can be found in [SEARCH_TERMS.md](SEARCH_TERMS.md). That list of terms are the _only_ terms that will work with the backend, so don't be surprised if your searches for Basket Weaving or Bubble Wrap don't come back with any results.
+The backend API uses a fixed set of cached search results and is limited to a particular set of search terms, which can be found in [SEARCH_TERMS.md](SEARCH_TERMS.md). That list of terms are the _only_ terms that will work with the backend.
 
 ## Create React App
 
@@ -87,6 +110,4 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Contributing
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
-
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+This repository is the completed MyReads project for Sarah Thomens for the Udacity React Class in the Google Nanodegree Program. Therefore, pull requests most likely will not be accepted.
