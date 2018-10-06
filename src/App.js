@@ -1,6 +1,7 @@
-import React from 'react'
-// import * as BooksAPI from './BooksAPI'
-import './App.css'
+import React from 'react'										// Imports React Library
+import * as BooksAPI from './BooksAPI'			// Imports the BooksAPI
+import { Route } from 'react-router-dom'		// Imports the Route Component from React
+import './App.css'													// Imports the CSS for the App
 
 class BooksApp extends React.Component
 {
@@ -12,8 +13,17 @@ class BooksApp extends React.Component
      * users can use the browser's back and forward buttons to navigate between
      * pages, as well as provide a good URL they can bookmark and share.
      */
-    showSearchPage: false
+    showSearchPage: false,
+		books: []
   }
+
+	componentDidMount( )
+	{
+		BooksAPI.getAll( ).then( ( books ) =>
+		{
+			this.setState( { books } )
+		})
+	}
 
   render( )
 	{
