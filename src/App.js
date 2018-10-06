@@ -2,8 +2,10 @@ import React from 'react'
 // import * as BooksAPI from './BooksAPI'
 import './App.css'
 
-class BooksApp extends React.Component {
-  state = {
+class BooksApp extends React.Component
+{
+  state =
+	{
     /**
      * TODO: Instead of using this state variable to keep track of which page
      * we're on, use the URL in the browser's address bar. This will ensure that
@@ -13,13 +15,14 @@ class BooksApp extends React.Component {
     showSearchPage: false
   }
 
-  render() {
+  render( )
+	{
     return (
       <div className="app">
-        {this.state.showSearchPage ? (
+        { this.state.showSearchPage ? (
           <div className="search-books">
             <div className="search-books-bar">
-              <a className="close-search" onClick={() => this.setState({ showSearchPage: false })}>Close</a>
+              <a className="close-search" onClick={ ( ) => this.setState({ showSearchPage: false })}>Close</a>
               <div className="search-books-input-wrapper">
                 {/*
                   NOTES: The search from BooksAPI is limited to a particular set of search terms.
