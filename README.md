@@ -13,7 +13,7 @@ To install and run this project:
 
 ## Requirements Checklist
 * Main Page
-	- [ ] Shows three different shelves - currently reading, want to read, and read
+	- [x] Shows three different shelves - currently reading, want to read, and read
 	- [ ] Links to Search Page
 * Search Page
 	- [ ] Has text input that brings up books that match the query
@@ -25,8 +25,8 @@ To install and run this project:
 	- [ ] Search works correctly when a book does not have a thumbnail or author
 	- [ ] User is able to search for multiple word queries
 * Books
-	- [ ] Each book has a control to change what shelf it is on
-	- [ ] Default value should be the current shelf the book is on or 'none' if not on a shelf
+	- [x] Each book has a control to change what shelf it is on
+	- [x] Default value should be the current shelf the book is on or 'none' if not on a shelf
 	- [ ] Book moves to new shelf immediately when changed
 	- [ ] Book should have same state on main page and on search page
 * Misc

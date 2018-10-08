@@ -6,19 +6,21 @@ class Shelf extends React.Component
 	static propTypes =
 	{
 		books: PropTypes.array.isRequired,
-		shelfName: PropTypes.string.isRequired
+		filterType: PropTypes.string.isRequired,
+		shelfName: PropTypes.string.isRequired,
+		updateShelf: PropTypes.func.isRequired
 	}
 
 	render( )
 	{
-		const { books, shelfName } = this.props
+		const { books, filterType, shelfName, updateShelf } = this.props
 
 		return (
 			<div className="bookshelf">
 				<h2 className="bookshelf-title">{shelfName}</h2>
 				<div className="bookshelf-books">
 					<ol className="books-grid">
-						{books.map( (book) => (
+						{books.filter( (book) => book.shelf === filterType ).map( (book) => (
 							<li key={book.id}>
 								<div className="book">
 									<div className="book-top">
@@ -28,12 +30,15 @@ class Shelf extends React.Component
 												backgroundImage: `url(${book.imageLinks.thumbnail})`
 										}}></div>
 										<div className="book-shelf-changer">
-											<select>
-												<option value="move" disabled>Move to...</option>
-												<option value="currentlyReading">Currently Reading</option>
-												<option value="wantToRead">Want to Read</option>
-												<option value="read">Read</option>
-												<option value="none">None</option>
+											<select
+												defaultValue={book.shelf}
+												onChange={ (event) => updateShelf( book, event.target.value ) }
+											>
+													<option value="move" disabled>Move to...</option>
+													<option value="currentlyReading">Currently Reading</option>
+													<option value="wantToRead">Want to Read</option>
+													<option value="read">Read</option>
+													<option value="none">None</option>
 											</select>
 										</div>
 									</div>
