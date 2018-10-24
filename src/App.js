@@ -8,11 +8,13 @@ import './App.css'													// Imports the CSS for the App
 
 class BooksApp extends React.Component
 {
+	//--The state of the books array for the app----------------------------------------------------------------
   state =
 	{
 		books: []
   }
 
+	//--Function that gets all books from the Books API and sets the books state with the array-----------------
 	componentDidMount( )
 	{
 		BooksAPI.getAll( ).then( ( books ) =>
@@ -21,6 +23,7 @@ class BooksApp extends React.Component
 		})
 	}
 
+	//--Function that updates the shelves when a user changes where a book is placed----------------------------
 	changeShelf = ( book, shelf ) =>
 	{
 		BooksAPI.update( book, shelf ).then( ( book ) =>
@@ -34,10 +37,12 @@ class BooksApp extends React.Component
 		})
 	}
 
+	//--The Render function for the app-------------------------------------------------------------------------
   render( )
 	{
 		return (
       <div className='app'>
+				//--Main Page HTML------------------------------------------------------------------------------------
 				<Route exact path='/' render={ ( ) => (
 					<div className="list-books">
             <div className="list-books-title">
@@ -45,33 +50,39 @@ class BooksApp extends React.Component
             </div>
             <div className="list-books-content">
               <div>
-								<Shelf
-									books={this.state.books}
-									filterType='currentlyReading'
-									shelfName='Currently Reading'
-									updateShelf={this.changeShelf}
-								/>
-								<Shelf
-									books={this.state.books}
-									filterType='wantToRead'
-									shelfName='Want to Read'
-									updateShelf={this.changeShelf}
-								/>
-								<Shelf
-									books={this.state.books}
-									filterType='read'
-									shelfName='Read'
-									updateShelf={this.changeShelf}
-								/>
+								//--Currently Reading Shelf-------------------------------------------------------------------
+								<div className="bookshelf">
+									<h2 className="bookshelf-title">Currently Reading</h2>
+									<Shelf
+										books={this.state.books.filter( (book) => book.shelf === 'currentlyReading' )}
+										updateShelf={this.changeShelf}
+									/>
+								</div>
+								//--Want to Read Shelf------------------------------------------------------------------------
+								<div className="bookshelf">
+									<h2 className="bookshelf-title">Want to Read</h2>
+									<Shelf
+										books={this.state.books.filter( (book) => book.shelf === 'wantToRead' )}
+										updateShelf={this.changeShelf}
+									/>
+								</div>
+								//--Read Shelf--------------------------------------------------------------------------------
+								<div className="bookshelf">
+									<h2 className="bookshelf-title">Read</h2>
+									<Shelf
+										books={this.state.books.filter( (book) => book.shelf === 'read' )}
+										updateShelf={this.changeShelf}
+									/>
+								</div>
               </div>
             </div>
+						//--Link to Search Page Using React Link----------------------------------------------------------
             <div className="open-search">
-							<Link
-								to='/search'
-							>Add a book</Link>
+							<Link to='/search'>Add a book</Link>
             </div>
           </div>
 				)}/>
+				//--Book Search Page----------------------------------------------------------------------------------
 				<Route path='/search' render={ ( { history } ) => (
 					<BookSearch/>
 				)}/>

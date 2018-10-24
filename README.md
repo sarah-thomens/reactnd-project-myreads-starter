@@ -14,11 +14,11 @@ To install and run this project:
 ## Requirements Checklist
 * Main Page
 	- [x] Shows three different shelves - currently reading, want to read, and read
-	- [ ] Links to Search Page
+	- [x] Links to Search Page
 * Search Page
 	- [ ] Has text input that brings up books that match the query
 	- [ ] Books that come up should have control to change bookshelves
-	- [ ] Has a link to the root URL (`/`)
+	- [x] Has a link to the root URL (`/`)
 	- [ ] New book selections on search page should show up on main page
 	- [ ] Invalid queries are handled
 	- [ ] Prior search results are not shown
