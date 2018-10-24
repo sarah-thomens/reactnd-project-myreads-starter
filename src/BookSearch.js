@@ -4,16 +4,19 @@ import { Link } from 'react-router-dom'			// Imports the Link Component from Rea
 
 class BookSearch extends React.Component
 {
+	//--PropTypes for BookSearch Component----------------------------------------------------------------------
 	static propTypes =
 	{
 
 	}
 
+	//--Render Method for BookSearch Component------------------------------------------------------------------
 	render( )
 	{
 		return(
 			<div className="search-books">
 				<div className="search-books-bar">
+					//--Link back to Main Page using React Link---------------------------------------------------------
 					<Link
 						className="close-search"
 						to='/'

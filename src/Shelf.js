@@ -3,19 +3,22 @@ import PropTypes from 'prop-types'					// Imports PropTypes capability
 
 class Shelf extends React.Component
 {
+	//--PropTypes for Shelf Component---------------------------------------------------------------------------
 	static propTypes =
 	{
-		books: PropTypes.array.isRequired,
-		updateShelf: PropTypes.func.isRequired
+		books: PropTypes.array.isRequired,			// Books Array Depending on Shelf
+		updateShelf: PropTypes.func.isRequired	// updateShelf Function
 	}
 
+	//--Render Method for Shelf Component-----------------------------------------------------------------------
 	render( )
 	{
-		const { books, updateShelf } = this.props
+		const { books, updateShelf } = this.props		// books array and updateShelf function
 
 		return (
 			<div className="bookshelf-books">
 				<ol className="books-grid">
+					//--Lists out books depending on books array--------------------------------------------------------
 					{books.map( (book) => (
 						<li key={book.id}>
 							<div className="book">
@@ -25,6 +28,7 @@ class Shelf extends React.Component
 											height: 193,
 											backgroundImage: `url(${book.imageLinks.thumbnail})`
 									}}></div>
+									//--Book Changer Options--------------------------------------------------------------------
 									<div className="book-shelf-changer">
 										<select
 											defaultValue={book.shelf}
