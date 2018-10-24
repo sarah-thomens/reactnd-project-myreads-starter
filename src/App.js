@@ -28,12 +28,10 @@ class BooksApp extends React.Component
 	{
 		BooksAPI.update( book, shelf ).then( ( book ) =>
 		{
-			{
-				this.setState( state =>
-				({
-					books: state.books
-				}))
-			}
+			this.setState( state =>
+			({
+				books: state.books
+			}))
 		})
 	}
 
@@ -42,7 +40,7 @@ class BooksApp extends React.Component
 	{
 		return (
       <div className='app'>
-				//--Main Page HTML------------------------------------------------------------------------------------
+				{/*--Main Page HTML--------------------------------------------------------------------------------*/}
 				<Route exact path='/' render={ ( ) => (
 					<div className="list-books">
             <div className="list-books-title">
@@ -50,7 +48,7 @@ class BooksApp extends React.Component
             </div>
             <div className="list-books-content">
               <div>
-								//--Currently Reading Shelf-------------------------------------------------------------------
+								{/*--Currently Reading Shelf---------------------------------------------------------------*/}
 								<div className="bookshelf">
 									<h2 className="bookshelf-title">Currently Reading</h2>
 									<Shelf
@@ -58,7 +56,7 @@ class BooksApp extends React.Component
 										updateShelf={this.changeShelf}
 									/>
 								</div>
-								//--Want to Read Shelf------------------------------------------------------------------------
+								{/*--Want to Read Shelf--------------------------------------------------------------------*/}
 								<div className="bookshelf">
 									<h2 className="bookshelf-title">Want to Read</h2>
 									<Shelf
@@ -66,7 +64,7 @@ class BooksApp extends React.Component
 										updateShelf={this.changeShelf}
 									/>
 								</div>
-								//--Read Shelf--------------------------------------------------------------------------------
+								{/*--Read Shelf----------------------------------------------------------------------------*/}
 								<div className="bookshelf">
 									<h2 className="bookshelf-title">Read</h2>
 									<Shelf
@@ -76,15 +74,18 @@ class BooksApp extends React.Component
 								</div>
               </div>
             </div>
-						//--Link to Search Page Using React Link----------------------------------------------------------
+						{/*--Link to Search Page Using React Link------------------------------------------------------*/}
             <div className="open-search">
 							<Link to='/search'>Add a book</Link>
             </div>
           </div>
 				)}/>
-				//--Book Search Page----------------------------------------------------------------------------------
+				{/*--Book Search Page------------------------------------------------------------------------------*/}
 				<Route path='/search' render={ ( { history } ) => (
-					<BookSearch/>
+					<BookSearch
+						books={this.state.books}
+						updateShelf={this.changeShelf}
+					/>
 				)}/>
       </div>
     )

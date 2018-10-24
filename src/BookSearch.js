@@ -1,22 +1,26 @@
 import React from 'react'										// Imports React Library
 import PropTypes from 'prop-types'					// Imports PropTypes capability
 import { Link } from 'react-router-dom'			// Imports the Link Component from React
+import Shelf from './Shelf'									// Imports the Shelf Component
 
 class BookSearch extends React.Component
 {
 	//--PropTypes for BookSearch Component----------------------------------------------------------------------
 	static propTypes =
 	{
-
+		books: PropTypes.array.isRequired,			// Books Array
+		updateShelf: PropTypes.func.isRequired	// updateShelf Function
 	}
 
 	//--Render Method for BookSearch Component------------------------------------------------------------------
 	render( )
 	{
+		const { books, updateShelf } = this.props		// books array and updateShelf function
+
 		return(
 			<div className="search-books">
 				<div className="search-books-bar">
-					//--Link back to Main Page using React Link---------------------------------------------------------
+					{/*--Link back to Main Page using React Link-----------------------------------------------------*/}
 					<Link
 						className="close-search"
 						to='/'
@@ -35,7 +39,10 @@ class BookSearch extends React.Component
 					</div>
 				</div>
 				<div className="search-books-results">
-					<ol className="books-grid"></ol>
+					<Shelf
+						books={books}
+						updateShelf={updateShelf}
+					/>
 				</div>
 			</div>
 		)

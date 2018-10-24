@@ -18,7 +18,7 @@ class Shelf extends React.Component
 		return (
 			<div className="bookshelf-books">
 				<ol className="books-grid">
-					//--Lists out books depending on books array--------------------------------------------------------
+					{/*--Lists out books depending on books array----------------------------------------------------*/}
 					{books.map( (book) => (
 						<li key={book.id}>
 							<div className="book">
@@ -28,7 +28,7 @@ class Shelf extends React.Component
 											height: 193,
 											backgroundImage: `url(${book.imageLinks.thumbnail})`
 									}}></div>
-									//--Book Changer Options--------------------------------------------------------------------
+									{/*--Book Changer Options----------------------------------------------------------------*/}
 									<div className="book-shelf-changer">
 										<select
 											defaultValue={book.shelf}
