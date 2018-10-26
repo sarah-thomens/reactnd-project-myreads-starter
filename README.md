@@ -16,19 +16,19 @@ To install and run this project:
 	- [x] Shows three different shelves - currently reading, want to read, and read
 	- [x] Links to Search Page
 * Search Page
-	- [ ] Has text input that brings up books that match the query
-	- [ ] Books that come up should have control to change bookshelves
+	- [x] Has text input that brings up books that match the query
+	- [x] Books that come up should have control to change bookshelves
 	- [x] Has a link to the root URL (`/`)
-	- [ ] New book selections on search page should show up on main page
-	- [ ] Invalid queries are handled
-	- [ ] Prior search results are not shown
-	- [ ] Search works correctly when a book does not have a thumbnail or author
+	- [x] New book selections on search page should show up on main page
+	- [x] Invalid queries are handled
+	- [x] Prior search results are not shown
+	- [x] Search works correctly when a book does not have a thumbnail or author
 	- [ ] User is able to search for multiple word queries
 * Books
 	- [x] Each book has a control to change what shelf it is on
 	- [x] Default value should be the current shelf the book is on or 'none' if not on a shelf
-	- [ ] Book moves to new shelf immediately when changed
-	- [ ] Book should have same state on main page and on search page
+	- [x] Book moves to new shelf immediately when changed
+	- [x] Book should have same state on main page and on search page
 * Misc
 	- [ ] Include a README file with instructions for installing and launching
 	- [ ] Project code handles state management appropriately
