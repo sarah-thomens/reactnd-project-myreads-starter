@@ -9,7 +9,8 @@ class BookSearch extends React.Component
 	//--PropTypes for BookSearch Component----------------------------------------------------------------------
 	static propTypes =
 	{
-		updateShelf: PropTypes.func.isRequired	// updateShelf Function
+		updateShelf: PropTypes.func.isRequired,	// updateShelf Function
+		books: PropTypes.array.isRequired				// books array
 	}
 
 	//--A State for the Search Query a user will input----------------------------------------------------------
@@ -41,6 +42,30 @@ class BookSearch extends React.Component
 			}
 			else
 			{
+				results = results.map( (book) =>
+				{
+					if( book.imageLinks === undefined )
+					{
+						book.imageLinks = { smallThumbnail: "", thumbnail: "" }
+					}
+
+					if( book.authors === undefined )
+					{
+						book.authors = ["No Author"]
+					}
+
+					book.shelf = "none";
+					this.props.books.forEach( (myBook) =>
+					{
+						if( myBook.id === book.id )
+						{
+							book.shelf = myBook.shelf;
+						}
+					})
+
+					return book;
+				})
+
 				return this.setState({ searchResults: results });
 			}
 		});
@@ -49,7 +74,7 @@ class BookSearch extends React.Component
 	//--Render Method for BookSearch Component------------------------------------------------------------------
 	render( )
 	{
-		const { updateShelf } = this.props						// updateShelf function
+		const { updateShelf, books } = this.props			// updateShelf function and books array
 		const { query, searchResults } = this.state		// the query state
 
 		return(

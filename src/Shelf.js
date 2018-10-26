@@ -26,12 +26,12 @@ class Shelf extends React.Component
 									<div className="book-cover" style={{
 											width: 128,
 											height: 193,
-											backgroundImage: `url(${book.imageLinks && book.imageLinks.thumbnail || ""})`
+											backgroundImage: `url(${book.imageLinks.thumbnail})`
 									}}></div>
 									{/*--Book Changer Options----------------------------------------------------------------*/}
 									<div className="book-shelf-changer">
 										<select
-											defaultValue={book.shelf}
+											defaultValue={book.shelf || ""}
 											onChange={ (event) => updateShelf( book, event.target.value ) }
 										>
 												<option value="move" disabled>Move to...</option>
@@ -43,8 +43,7 @@ class Shelf extends React.Component
 									</div>
 								</div>
 								<div className="book-title">{book.title}</div>
-								<div className="book-authors">{ (book.authors === undefined) ? <div>No Author</div> :
-									( book.authors.map( (author) => (
+								<div className="book-authors">{( book.authors.map( (author) => (
 										<div key={book.id + author}>{author}</div>
 									)))
 								}</div>
