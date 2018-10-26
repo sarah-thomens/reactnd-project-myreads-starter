@@ -43,9 +43,11 @@ class Shelf extends React.Component
 									</div>
 								</div>
 								<div className="book-title">{book.title}</div>
-								<div className="book-authors">{book.authors.map( (author) => (
-									<div key={book.id + author}>{author}</div>
-								))}</div>
+								<div className="book-authors">{ (book.authors === undefined) ? <div>No Author</div> :
+									( book.authors.map( (author) => (
+										<div key={book.id + author}>{author}</div>
+									)))
+								}</div>
 							</div>
 						</li>
 					))}
