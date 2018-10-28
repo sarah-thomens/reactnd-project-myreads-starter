@@ -23,15 +23,15 @@ To install and run this project:
 	- [x] Invalid queries are handled
 	- [x] Prior search results are not shown
 	- [x] Search works correctly when a book does not have a thumbnail or author
-	- [ ] User is able to search for multiple word queries
+	- [x] User is able to search for multiple word queries
 * Books
 	- [x] Each book has a control to change what shelf it is on
 	- [x] Default value should be the current shelf the book is on or 'none' if not on a shelf
 	- [x] Book moves to new shelf immediately when changed
 	- [x] Book should have same state on main page and on search page
 * Misc
-	- [ ] Include a README file with instructions for installing and launching
-	- [ ] Project code handles state management appropriately
+	- [x] Include a README file with instructions for installing and launching
+	- [x] Project code handles state management appropriately
 
 
 ## What You're Getting
@@ -58,9 +58,12 @@ To install and run this project:
 
 Remember that good React design practice is to create new JS files for each component and use import/require statements to include them where they are needed.
 
+## Guidance Used
+The tutorial for the FEND Project 6: My Reads Walkthrough was used to help get the search function working properly after spending several days not getting it to work on my own. Though I did watch Ryan Waite's video, my code is not exactly like his because our projects were so different. However, I would not have been able to figure out the search function without his guidance. Thanks! You can watch the video [here](https://www.youtube.com/watch?v=acJHkd6K5kI&feature=youtu.be).
+
 ## Backend Server
 
-To simplify your development process, we've provided a backend server for you to develop against. The provided file [`BooksAPI.js`](src/BooksAPI.js) contains the methods you will need to perform necessary operations on the backend:
+A backend server was provided to develop against. The provided file [`BooksAPI.js`](src/BooksAPI.js) contains the methods to perform necessary operations on the backend:
 
 * [`getAll`](#getall)
 * [`update`](#update)

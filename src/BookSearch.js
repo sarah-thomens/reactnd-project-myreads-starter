@@ -29,32 +29,41 @@ class BookSearch extends React.Component
 	//--Submitting the Search Query to display books that match-------------------------------------------------
 	submitQuery( )
 	{
+		//--If the query is empty or undefined return an empty search array---------------------------------------
 		if( this.state.query === '' || this.state.query === undefined )
 		{
 			return this.setState({ searchResults: [] });
 		}
 
+		//--Search the BooksAPI with the trimmed query------------------------------------------------------------
 		BooksAPI.search( this.state.query.trim( ) ).then( results =>
 		{
+			//--If there is an error, return an empty search array--------------------------------------------------
 			if( results.error )
 			{
 				return this.setState({ searchResults: [] });
 			}
+			//--If there is not an error, create a new array of books from the results------------------------------
 			else
 			{
 				results = results.map( (book) =>
 				{
+					//--If there is no image file, create an empty image object file------------------------------------
 					if( book.imageLinks === undefined )
 					{
 						book.imageLinks = { smallThumbnail: "", thumbnail: "" }
 					}
 
+					//--If there are no authers, create an array stating No Author--------------------------------------
 					if( book.authors === undefined )
 					{
 						book.authors = ["No Author"]
 					}
 
+					//--Set the default shelf to none for each book-----------------------------------------------------
 					book.shelf = "none";
+
+					//--Check the current bookshelves against the searched books and change shelves accordingly---------
 					this.props.books.forEach( (myBook) =>
 					{
 						if( myBook.id === book.id )
@@ -74,7 +83,7 @@ class BookSearch extends React.Component
 	//--Render Method for BookSearch Component------------------------------------------------------------------
 	render( )
 	{
-		const { updateShelf, books } = this.props			// updateShelf function and books array
+		const { updateShelf } = this.props						// updateShelf function and books array
 		const { query, searchResults } = this.state		// the query state
 
 		return(
@@ -85,24 +94,17 @@ class BookSearch extends React.Component
 						className="close-search"
 						to='/'
 					>Close</Link>
+					{/*--Set the Input field for the search to trigger the updateQuery function----------------------*/}
 					<div className="search-books-input-wrapper">
-						{/*
-							NOTES: The search from BooksAPI is limited to a particular set of search terms.
-							You can find these search terms here:
-							https://github.com/udacity/reactnd-project-myreads-starter/blob/master/SEARCH_TERMS.md
-
-							However, remember that the BooksAPI.search method DOES search by title or author. So, don't worry if
-							you don't find a specific author or title. Every search is limited by search terms.
-						*/}
 						<input
 							type="text"
 							placeholder="Search by title or author"
 							value={query}
 							onChange={ (event) => this.updateQuery( event.target.value ) }
 						/>
-
 					</div>
 				</div>
+				{/*--Show the search results on the page using Shelf component-------------------------------------*/}
 				<div className="search-books-results">
 					<Shelf
 						books={searchResults}

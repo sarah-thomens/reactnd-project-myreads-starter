@@ -31,7 +31,7 @@ class Shelf extends React.Component
 									{/*--Book Changer Options----------------------------------------------------------------*/}
 									<div className="book-shelf-changer">
 										<select
-											defaultValue={book.shelf || ""}
+											defaultValue={book.shelf || "none"}
 											onChange={ (event) => updateShelf( book, event.target.value ) }
 										>
 												<option value="move" disabled>Move to...</option>

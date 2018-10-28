@@ -26,13 +26,11 @@ class BooksApp extends React.Component
 	//--Function that updates the shelves when a user changes where a book is placed----------------------------
 	changeShelf = ( book, shelf ) =>
 	{
-		BooksAPI.update( book, shelf ).then( ( book ) =>
-		{
-			this.setState( state =>
-			({
-				books: state.books
+		BooksAPI.update( book, shelf )
+			.then( BooksAPI.getAll( ).then( (books) =>
+			{
+				this.setState( {books: books } )
 			}))
-		})
 	}
 
 	//--The Render function for the app-------------------------------------------------------------------------
