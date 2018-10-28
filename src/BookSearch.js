@@ -32,52 +32,55 @@ class BookSearch extends React.Component
 		//--If the query is empty or undefined return an empty search array---------------------------------------
 		if( this.state.query === '' || this.state.query === undefined )
 		{
-			return this.setState({ searchResults: [] });
+			this.setState({ searchResults: [] });
 		}
 
-		//--Search the BooksAPI with the trimmed query------------------------------------------------------------
-		BooksAPI.search( this.state.query.trim( ) ).then( results =>
+		else
 		{
-			//--If there is an error, return an empty search array--------------------------------------------------
-			if( results.error )
+			//--Search the BooksAPI with the trimmed query----------------------------------------------------------
+			BooksAPI.search( this.state.query.trim( ) ).then( results =>
 			{
-				return this.setState({ searchResults: [] });
-			}
-			//--If there is not an error, create a new array of books from the results------------------------------
-			else
-			{
-				results = results.map( (book) =>
+				//--If there is an error, return an empty search array------------------------------------------------
+				if( !Array.isArray( results ) )
 				{
-					//--If there is no image file, create an empty image object file------------------------------------
-					if( book.imageLinks === undefined )
+					results = [];
+				}
+				//--If there is not an error, create a new array of books from the results----------------------------
+				else
+				{
+					results = results.map( (book) =>
 					{
-						book.imageLinks = { smallThumbnail: "", thumbnail: "" }
-					}
-
-					//--If there are no authers, create an array stating No Author--------------------------------------
-					if( book.authors === undefined )
-					{
-						book.authors = ["No Author"]
-					}
-
-					//--Set the default shelf to none for each book-----------------------------------------------------
-					book.shelf = "none";
-
-					//--Check the current bookshelves against the searched books and change shelves accordingly---------
-					this.props.books.forEach( (myBook) =>
-					{
-						if( myBook.id === book.id )
+						//--If there is no image file, create an empty image object file----------------------------------
+						if( book.imageLinks === undefined )
 						{
-							book.shelf = myBook.shelf;
+							book.imageLinks = { smallThumbnail: '', thumbnail: '' }
 						}
+
+						//--If there are no authers, create an array stating No Author------------------------------------
+						if( book.authors === undefined )
+						{
+							book.authors = ["No Author"]
+						}
+
+						//--Set the default shelf to none for each book---------------------------------------------------
+						book.shelf = "none";
+
+						//--Check the current bookshelves against the searched books and change shelves accordingly-------
+						this.props.books.forEach( (myBook) =>
+						{
+							if( myBook.id === book.id )
+							{
+								book.shelf = myBook.shelf;
+							}
+						})
+
+						return book;
 					})
+				}
 
-					return book;
-				})
-
-				return this.setState({ searchResults: results });
-			}
-		});
+				this.setState({ searchResults: results });
+			});
+		}
 	}
 
 	//--Render Method for BookSearch Component------------------------------------------------------------------

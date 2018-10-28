@@ -27,10 +27,14 @@ class BooksApp extends React.Component
 	changeShelf = ( book, shelf ) =>
 	{
 		BooksAPI.update( book, shelf )
-			.then( BooksAPI.getAll( ).then( (books) =>
+			.then( (resp) =>
 			{
-				this.setState( {books: books } )
-			}))
+				book.shelf = shelf;
+				this.setState( (state) =>
+				({
+					books: state.books.filter( b => b.id !== book.id ).concat([book])
+				}));
+			});
 	}
 
 	//--The Render function for the app-------------------------------------------------------------------------
@@ -50,7 +54,7 @@ class BooksApp extends React.Component
 								<div className="bookshelf">
 									<h2 className="bookshelf-title">Currently Reading</h2>
 									<Shelf
-										books={this.state.books.filter( (book) => book.shelf === 'currentlyReading' )}
+										books={this.state.books.filter( (book) => (book.shelf === 'currentlyReading') )}
 										updateShelf={this.changeShelf}
 									/>
 								</div>
@@ -58,7 +62,7 @@ class BooksApp extends React.Component
 								<div className="bookshelf">
 									<h2 className="bookshelf-title">Want to Read</h2>
 									<Shelf
-										books={this.state.books.filter( (book) => book.shelf === 'wantToRead' )}
+										books={this.state.books.filter( (book) => (book.shelf === 'wantToRead') )}
 										updateShelf={this.changeShelf}
 									/>
 								</div>
@@ -66,7 +70,7 @@ class BooksApp extends React.Component
 								<div className="bookshelf">
 									<h2 className="bookshelf-title">Read</h2>
 									<Shelf
-										books={this.state.books.filter( (book) => book.shelf === 'read' )}
+										books={this.state.books.filter( (book) => (book.shelf === 'read') )}
 										updateShelf={this.changeShelf}
 									/>
 								</div>
@@ -74,12 +78,12 @@ class BooksApp extends React.Component
             </div>
 						{/*--Link to Search Page Using React Link------------------------------------------------------*/}
             <div className="open-search">
-							<Link to='/search'>Add a book</Link>
+							<Link to="/search">Add a book</Link>
             </div>
           </div>
 				)}/>
 				{/*--Book Search Page------------------------------------------------------------------------------*/}
-				<Route path='/search' render={ ( { history } ) => (
+				<Route path="/search" render={ ( { history } ) => (
 					<BookSearch
 						books={this.state.books}
 						updateShelf={this.changeShelf}
