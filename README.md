@@ -59,7 +59,7 @@ To install and run this project:
 Remember that good React design practice is to create new JS files for each component and use import/require statements to include them where they are needed.
 
 ## Guidance Used
-The tutorial for the FEND Project 6: My Reads Walkthrough was used to help get the search function working properly after spending several days not getting it to work on my own. Though I did watch Ryan Waite's video, my code is not exactly like his because our projects were so different. However, I would not have been able to figure out the search function without his guidance. Thanks! You can watch the video [here](https://www.youtube.com/watch?v=acJHkd6K5kI&feature=youtu.be).
+The tutorial for the FEND Project 6: My Reads Walkthrough was used to help get the search function working properly and some issues with changing shelves not persisting with a refresh. Though I did watch Ryan Waite's video, my code is not exactly like his because our projects were so different. However, I would not have been able to figure things without his guidance. Thanks! You can watch the video [here](https://www.youtube.com/watch?v=acJHkd6K5kI&feature=youtu.be).
 
 ## Backend Server
 
